@@ -5,6 +5,8 @@ import com.nimbusds.jose.jwk.OctetKeyPair;
 import com.nimbusds.jose.jwk.gen.OctetKeyPairGenerator;
 import jakarta.ejb.LocalBean;
 import jakarta.ejb.Singleton;
+import org.eclipse.microprofile.config.Config;
+import org.eclipse.microprofile.config.ConfigProvider;
 import org.exemple.project_one.controllers.Role;
 
 import java.util.HashMap;
@@ -21,6 +23,6 @@ public class JWTManager {
     private final Set<OctetKeyPair> cachedKeyPairs = new HashSet<>();
     private final OctetKeyPairGenerator keyPairGenerator = new OctetKeyPairGenerator(Curve.Ed25519);
     public String generateJWT(String username, Role[] roles) {
-
+        return null;
     }
 }
