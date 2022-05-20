@@ -1,7 +1,9 @@
 package org.exemple.project_one.entities;
 
 import jakarta.persistence.AttributeConverter;
+import jakarta.persistence.Converter;
 
+@Converter(autoApply = true)
 public class GenderConverter implements AttributeConverter<Gender,Character> {
     @Override
     public Character convertToDatabaseColumn(Gender gender) {

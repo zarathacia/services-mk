@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
-
+@MappedSuperclass
 public class PersonWithDetails  <ID extends java.io.Serializable> extends Person<ID> {
     @Basic
     private String email;

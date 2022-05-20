@@ -1,6 +1,8 @@
 package org.exemple.project_one.entities;
 
+import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.*;
+import jakarta.xml.bind.annotation.XmlTransient;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -16,6 +18,8 @@ public class Country extends SimplePKEntity<Integer> {
 
     private String country;
     private String isoCode;
+    @XmlTransient
+    @JsonbTransient
     @OneToMany(mappedBy = "country")
     private final Set<City> cities =new HashSet<>();
 
@@ -53,12 +57,12 @@ public class Country extends SimplePKEntity<Integer> {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Country country1 = (Country) o;
-        return country.equals(country1.country) && isoCode.equals(country1.isoCode) && Objects.equals(cities, country1.cities);
+        return country.equals(country1.country) && isoCode.equals(country1.isoCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), country, isoCode, cities);
+        return Objects.hash(super.hashCode(), country, isoCode);
     }
 
     @Override
@@ -67,7 +71,6 @@ public class Country extends SimplePKEntity<Integer> {
                 "\"super\":"+super.toString()+
                 ",\"country\":\"" + country + '\"' +
                 ",\"isoCode\":\"" + isoCode + '\"' +
-                ",\"cities\":" + Arrays.deepToString(cities.toArray())  +
                 '}';
     }
 }

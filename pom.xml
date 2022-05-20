@@ -55,6 +55,17 @@
             <artifactId>tink</artifactId>
             <version>${google.crypto.tink.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.paho</groupId>
+            <artifactId>org.eclipse.paho.mqttv5.client</artifactId>
+            <version>1.2.5</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>iam-1.0</finalName>
